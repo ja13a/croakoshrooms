@@ -2,6 +2,7 @@ const paths = require('./paths.webpack.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const StylelintPlugin = require('stylelint-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   commonModules: {
@@ -54,13 +55,23 @@ module.exports = {
       favicon: paths.src + '/img/favicon.svg',
       filename: 'index.html'
     }),
-    new StylelintPlugin()
+    new StylelintPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'src/static', to: 'static' }
+      ]
+    })
   ],
   commonResolve: {
     modules: [paths.src, 'node_modules'],
     extensions: ['.js', '.jsx', '.json'],
     alias: {
       '~': paths.src
+    },
+    fallback: {
+      fs: false,
+      path: false,
+      crypto: false
     }
   },
 };

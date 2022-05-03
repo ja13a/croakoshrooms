@@ -47,6 +47,7 @@ module.exports = {
   },
   ignorePatterns: [
     '/config/**',
-    '.eslintrc.js'
+    '.eslintrc.js',
+    './src/js/opencv.js'
   ]
 };
