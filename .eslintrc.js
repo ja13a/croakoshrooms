@@ -44,6 +44,10 @@ module.exports = {
       'error',
       'never'
     ],
+    'no-unused-vars': [
+      'warn',
+      'always'
+    ]
   },
   ignorePatterns: [
     '/config/**',

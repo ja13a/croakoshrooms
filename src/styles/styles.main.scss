@@ -1,0 +1,114 @@
+@use './styles.variables.scss' as *;
+
+html {
+  color: $white-basic;
+  font-size: 8px;
+}
+
+body {
+  margin: 0;
+  font-family: 'JetBrains Mono', sans-serif;
+  background-color: $bg-dark;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin: 40px auto 65px;
+
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+  }
+
+  &__title {
+    font-size: 8em;
+  }
+
+  &__subtitle {
+    margin-top: -6px;
+    margin-left: 6px;
+    color: $gray-basic;
+    font-size: 3em;
+  }
+}
+
+.navigation {
+  margin: 8px 0 0 6px;
+
+  &__list {
+    display: flex;
+    gap: 2em;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__link {
+    display: flex;
+    height: 21px;
+    font-size: 2em;
+    gap: 5px;
+  }
+
+  &__icon {
+    width: 21px;
+    height: 21px;
+    background-color: $white-basic;
+  }
+}
+
+.app {
+  display: flex;
+  width: fit-content;
+  margin: 0 auto;
+
+  &__image-placeholder {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 250px;
+    height: 450px;
+    border: 1px dashed $white-basic;
+    border-radius: $default-border-radius;
+  }
+
+  &__browse-file-button {
+    width: calc(100% - 16px);
+    height: 50px;
+    margin: auto 8px 8px;
+    color: $white-basic;
+    font-size: 2em;
+    border: 1px solid $white-basic;
+    border-radius: $default-border-radius;
+    background: transparent;
+    transition: all 0.4s;
+
+    &:hover {
+      color: $bg-dark;
+      background-color: $white-basic;
+      cursor: pointer;
+    }
+  }
+
+  &__drag-and-drop-text {
+    width: 220px;
+    margin: auto;
+    color: $gray-basic;
+    font-size: 3em;
+    text-align: center;
+  }
+
+  &__start-tip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    margin-left: 100px;
+    font-size: 5em;
+    text-align: center;
+  }
+}

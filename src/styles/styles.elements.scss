@@ -1,0 +1,13 @@
+.link {
+  color: $white-basic;
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    color: $green-basic;
+  }
+
+  &:hover > div {
+    background-color: $green-basic;
+  }
+}

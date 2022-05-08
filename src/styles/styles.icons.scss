@@ -1,0 +1,28 @@
+.source-icon {
+  mask: url('../img/git_icon.svg') no-repeat;
+}
+
+.about-icon {
+  mask: url('../img/info_icon.svg') no-repeat;
+}
+
+.contact-icon {
+  mask: url('../img/contact_icon.svg') no-repeat;
+}
+
+.image-file-icon {
+  width: 75px;
+  height: 100px;
+  margin: 40px auto;
+  mask: url('../img/file-image.svg');
+  background-color: $gray-basic;
+}
+
+.arrow-left-icon {
+  width: 72px;
+  height: 50px;
+  margin-top: 50px;
+  margin-right: 50px;
+  mask: url('../img/arrow-left.svg');
+  background-color: $gray-basic;
+}

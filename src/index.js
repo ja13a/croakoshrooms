@@ -1,6 +1,5 @@
 // Стили
-import '~/styles/test.styles.scss';
-import '~/styles/test.fonts.scss';
+import '~/styles/styles.index.scss';
 
 // Для работы с изоббрадениями и нейронками
 import * as tf from '@tensorflow/tfjs';
@@ -10,17 +9,19 @@ import testImg from './models/test.jpg';
 
 window.onload = () => {
   const rootNode = document.getElementById('root');
+  rootNode.append(imagePlaceholder());
+  rootNode.append(startTip());
 
-  const testImgNode = document.createElement('img');
-  testImgNode.setAttribute('src', testImg);
-  testImgNode.setAttribute('id', 'img');
-  testImgNode.setAttribute('width', 224);
-  testImgNode.setAttribute('height', 224);
+  // const testImgNode = document.createElement('img');
+  // testImgNode.setAttribute('src', testImg);
+  // testImgNode.setAttribute('id', 'img');
+  // testImgNode.setAttribute('width', 224);
+  // testImgNode.setAttribute('height', 224);
 
-  rootNode.append(testImgNode);
+  // rootNode.append(testImgNode);
 
-  // Загрузка модели
-  predict(testImgNode);
+  // // Загрузка модели
+  // predict(testImgNode);
 };
 
 async function predict(imageNode) {
@@ -38,15 +39,52 @@ async function predict(imageNode) {
   console.log(await output.data());
 }
 
-// testImgNode.onload = function() {
-//   cv['onRuntimeInitialized']= () => {
-//     const imgSize = new cv.Size(224, 224);
-//     const newImageArray = new cv.Mat();
-//     const imageArray = cv.imread('img');
-//     cv.resize(imageArray, newImageArray, imgSize, 0, 0, cv.INTER_AREA);
-//     cv.imshow('outputCanvas', newImageArray);
-//     console.log(newImageArray);
-//     tf.keras.models.load_model(model);
-//     console.log(reshape(newImageArray, [1, 224, 224, 3]));
-//   };
-// };
+function imagePlaceholder() {
+  const imageDragAndDrop = document.createElement('div');
+  imageDragAndDrop.classList.add('app__image-placeholder');
+
+  const imageFileIcon = document.createElement('div');
+  imageFileIcon.classList.add('image-file-icon');
+  imageDragAndDrop.append(imageFileIcon);
+
+  const dragAndDropText = document.createElement('span');
+  dragAndDropText.innerText = 'Drag & Drop image here';
+  dragAndDropText.classList.add('app__drag-and-drop-text');
+  imageDragAndDrop.append(dragAndDropText);
+
+  const orText = document.createElement('span');
+  orText.innerText = 'or';
+  orText.classList.add('app__drag-and-drop-text');
+  imageDragAndDrop.append(orText);
+
+  const browseFileButton = document.createElement('button');
+  browseFileButton.classList.add('app__browse-file-button');
+  browseFileButton.innerText = 'Browse files';
+  browseFileButton.addEventListener('click', (e) => {
+    const upload = document.createElement('input');
+    upload.type = 'file';
+    upload.accept = '.jpg, .jpeg, .png';
+
+    upload.onchange = (e) => {
+      console.log(e.currentTarget.files[0]);
+      // Дальше стирание #root и вызов функции по созданию вывод нейронки вроде result(img)
+    }
+
+    upload.click();
+  });
+  imageDragAndDrop.append(browseFileButton);
+
+  return imageDragAndDrop;
+}
+
+function startTip() {
+  const tip = document.createElement('div');
+  tip.innerText += 'To identify a mushroom, select a image in the panel';
+  tip.classList.add('app__start-tip');
+
+  const arrowLeft = document.createElement('div');
+  arrowLeft.classList.add('arrow-left-icon');
+  tip.append(arrowLeft);
+
+  return tip;
+}

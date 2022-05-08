@@ -4,9 +4,38 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= htmlWebpackPlugin.options.title %></title>
+  <title>Croakoshr00ms</title>
 </head>
 <body>
-  <div id="root"></div>
+  <header class="header">
+    <img src="./img/zhaba-pixel.png" width="150" height="150"/>
+    <div class="header__text-container">
+      <span class="header__title">Croakoshr00ms</span>
+      <span class="header__subtitle">Mushroom Identification App</span>
+      <nav class="navigation">
+        <ul class="navigation__list">
+          <li class="navigation__item">
+            <a href="#source" class="navigation__link link">
+              <div class="navigation__icon source-icon"></div>
+              Source
+            </a>
+          </li>
+          <li class="navigation__item">
+            <a href="#about" class="navigation__link link">
+              <div class="navigation__icon about-icon"></div>
+              About
+            </a>
+          </li>
+          <li class="navigation__item">
+            <a href="#contact" class="navigation__link link">
+              <div class="navigation__icon contact-icon"></div>
+              Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div id="root" class="app"></div>
 </body>
 </html>

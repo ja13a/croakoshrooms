@@ -8,6 +8,10 @@ module.exports = {
   commonModules: {
     rules: [
       {
+        test: /\.html$/i,
+        loader: "html-loader",
+      },
+      {
         test: /\.js$/,
         exclude: '/node_modules',
         loader: 'babel-loader'
@@ -39,11 +43,11 @@ module.exports = {
         ]
       },
       {
-        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
         type: 'asset/resource'
       },
       {
-        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+        test: /\.(woff(2)?|eot|ttf|otf|)$/,
         type: 'asset/inline'
       }
     ]
@@ -51,8 +55,7 @@ module.exports = {
   commonPlugins: [
     new HtmlWebpackPlugin({
       template: paths.src + '/template.html',
-      title: 'Webpack 5 & Vanilla JS boilerplate',
-      favicon: paths.src + '/img/favicon.svg',
+      favicon: paths.src + '/img/favicon.png',
       filename: 'index.html'
     }),
     new StylelintPlugin(),
