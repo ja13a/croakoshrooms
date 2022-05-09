@@ -61,7 +61,7 @@ module.exports = {
     new StylelintPlugin(),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'src/static', to: 'static' }
+        { from: 'src/static/model', to: 'static/model' }
       ]
     })
   ],

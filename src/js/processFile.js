@@ -15,7 +15,7 @@ export default async function processFile(imageNode) {
 }
 
 async function predict(imageNode) {
-  const model = await tf.loadLayersModel('/static/model/model.json');
+  const model = await tf.loadLayersModel('../static/model/model.json');
 
   try {
     const offset = tf.scalar(127.5);
