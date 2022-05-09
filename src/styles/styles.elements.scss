@@ -11,3 +11,33 @@
     background-color: $green-basic;
   }
 }
+
+.loader {
+  width: 100px;
+  height: 100px;
+  border: 16px solid #272727;
+  border-top: 16px solid $green-basic;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.button {
+  height: 50px;
+  color: $white-basic;
+  font-size: 2em;
+  border: 1px solid $white-basic;
+  border-radius: $default-border-radius;
+  background: $bg-dark;
+  transition: all 0.4s;
+
+  &:hover {
+    color: $bg-dark;
+    background-color: $white-basic;
+    cursor: pointer;
+  }
+}

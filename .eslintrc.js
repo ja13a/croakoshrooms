@@ -43,10 +43,6 @@ module.exports = {
     'comma-dangle': [
       'error',
       'never'
-    ],
-    'no-unused-vars': [
-      'warn',
-      'always'
     ]
   },
   ignorePatterns: [

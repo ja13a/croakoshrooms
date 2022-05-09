@@ -55,7 +55,7 @@ module.exports = {
   commonPlugins: [
     new HtmlWebpackPlugin({
       template: paths.src + '/template.html',
-      favicon: paths.src + '/img/favicon.png',
+      favicon: paths.src + '/static/img/favicon.png',
       filename: 'index.html'
     }),
     new StylelintPlugin(),

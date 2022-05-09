@@ -63,40 +63,39 @@ body {
 .app {
   display: flex;
   width: fit-content;
+  min-height: 600px;
   margin: 0 auto;
 
   &__image-placeholder {
     display: flex;
     flex-direction: column;
-    gap: 20px;
     width: 250px;
     height: 450px;
+    color: $gray-basic;
     border: 1px dashed $white-basic;
     border-radius: $default-border-radius;
+    transition: all 0.2s;
+    gap: 20px;
+
+    &[data-drag='true'] {
+      color: $white-basic;
+      background-color: #272727
+    }
+
+    &[data-drag='true'] > div.image-file-icon {
+      background-color: $white-basic;
+    }
   }
 
   &__browse-file-button {
     width: calc(100% - 16px);
-    height: 50px;
     margin: auto 8px 8px;
-    color: $white-basic;
-    font-size: 2em;
-    border: 1px solid $white-basic;
-    border-radius: $default-border-radius;
-    background: transparent;
-    transition: all 0.4s;
-
-    &:hover {
-      color: $bg-dark;
-      background-color: $white-basic;
-      cursor: pointer;
-    }
   }
 
   &__drag-and-drop-text {
     width: 220px;
     margin: auto;
-    color: $gray-basic;
+    color: inherit;
     font-size: 3em;
     text-align: center;
   }
@@ -105,10 +104,82 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     width: 350px;
+    margin-top: 40px;
     margin-left: 100px;
-    font-size: 5em;
+    font-size: 4em;
     text-align: center;
+  }
+
+  &__loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 450px;
+    min-height: 400px;
+  }
+}
+
+.result {
+  &__result-title {
+    font-size: 4em;
+  }
+
+  &__image-continer {
+    width: fit-content;
+    height: fit-content;
+  }
+
+  &__image {
+    object-fit: contain;
+    max-width: 400px;
+    max-height: 600px;
+    border-radius: $default-border-radius;
+  }
+
+  &__data-container {
+    display: flex;
+    flex-direction: column;
+    margin: -8px 0 0 25px;
+    gap: 15px;
+  }
+
+  &__item-probability {
+    font-size: 4em;
+  }
+
+  &__item-title {
+    margin-left: 10px;
+    color: $white-basic;
+    font-size: 3em;
+  }
+
+  &__item-lat-titel {
+    color: $gray-basic;
+    font-size: 2em;
+  }
+
+  &__links-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 30px;
+    margin-top: 5px;
+    gap: 15px;
+  }
+
+  &__icon-link {
+    display: block;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $green-basic;
+    }
+  }
+
+  &__restart-button {
+    margin-top: 40px;
   }
 }

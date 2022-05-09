@@ -1,20 +1,20 @@
 .source-icon {
-  mask: url('../img/git_icon.svg') no-repeat;
+  mask: url('../static/img/git_icon.svg') no-repeat;
 }
 
 .about-icon {
-  mask: url('../img/info_icon.svg') no-repeat;
+  mask: url('../static/img/info_icon.svg') no-repeat;
 }
 
 .contact-icon {
-  mask: url('../img/contact_icon.svg') no-repeat;
+  mask: url('../static/img/contact_icon.svg') no-repeat;
 }
 
 .image-file-icon {
   width: 75px;
   height: 100px;
   margin: 40px auto;
-  mask: url('../img/file-image.svg');
+  mask: url('../static/img/file-image.svg');
   background-color: $gray-basic;
 }
 
@@ -23,6 +23,27 @@
   height: 50px;
   margin-top: 50px;
   margin-right: 50px;
-  mask: url('../img/arrow-left.svg');
+  mask: url('../static/img/arrow-left.svg');
   background-color: $gray-basic;
+}
+
+.wikipedia-icon {
+  width: 22px;
+  height: 18px;
+  mask: url('../static/img/wikipedia_icon.svg') no-repeat;
+  background-color: $white-basic;
+}
+
+.google-icon {
+  width: 18px;
+  height: 18px;
+  mask: url('../static/img/google_icon.svg') no-repeat;
+  background-color: $white-basic;
+}
+
+.mushroom-observer-icon {
+  width: 18px;
+  height: 18px;
+  mask: url('../static/img/mushroomobserver_icon.svg') no-repeat;
+  background-color: $white-basic;
 }
