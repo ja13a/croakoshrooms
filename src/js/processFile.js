@@ -16,13 +16,11 @@ export default async function processFile(imageNode) {
 
 async function predict(imageNode) {
   const location = window.location.pathname === '/' ? '' : window.location.pathname;
-  const model = await tf.loadLayersModel(`https://${window.location.host}${location}/static/model/model.json`);
+  const model = await tf.loadLayersModel(`http://${window.location.host}${location}/static/model/model.json`);
 
   try {
-    const offset = tf.scalar(127.5);
     const testPic = tf.browser.fromPixels(imageNode)
-      .resizeNearestNeighbor([224, 224])
-      .sub(offset).div(offset)
+      .resizeBilinear([224, 224])
       .toFloat()
       .expandDims();
 
