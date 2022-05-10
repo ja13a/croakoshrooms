@@ -9,7 +9,7 @@ export function imagePlaceholder() {
 
 export function startTip() {
   const tip = document.createElement('div');
-  tip.innerText += 'Чтобы определить гриб выберите изображение с помощью панели справа';
+  tip.innerText += 'Чтобы определить гриб выберите изображение с помощью панели слева';
   tip.classList.add('app__start-tip');
 
   const arrowLeft = document.createElement('div');
@@ -26,6 +26,8 @@ export function endMushroomImage(mushroomImageNode) {
   mushroomImageNode.classList.add('result__image');
   mushroomImageContainer.append(mushroomImageNode);
 
+  mushroomImageContainer.append(restartButton());
+
   return mushroomImageContainer;
 }
 
@@ -38,28 +40,31 @@ export function endResults(results) {
   resultTitle.innerText = 'Результаты: ';
   resultsContainer.append(resultTitle);
 
-  results.forEach(result => resultsContainer.append(resultItem(result)));
+  results.forEach((result, i) => resultsContainer.append(resultItem(result, i)));
 
+  return resultsContainer;
+}
+
+function restartButton() {
   const restartButton = document.createElement('button');
   restartButton.classList.add('result__restart-button');
   restartButton.classList.add('button');
-  restartButton.innerText = 'Попробывать снова';
+  restartButton.innerText = 'Попробовать снова';
   restartButton.onclick = () => startApp();
 
-  resultsContainer.append(restartButton);
-
-  return resultsContainer;
+  return restartButton;
 }
 
 /**
  * Функция возварщает один элемент предсказания нейросети
  * @param {[number, string, string]} data Данные в формате [вероятность, латинское название, название на русском]
  */
-function resultItem(data) {
+function resultItem(data, i) {
   const itemContainer = document.createElement('div');
   itemContainer.classList.add('result__item-container');
 
   const resultProbability = document.createElement('span');
+  resultProbability.dataset.position = i;
   resultProbability.classList.add('result__item-probability');
   resultProbability.innerText = `${data[0]}%`;
   itemContainer.append(resultProbability);
@@ -134,7 +139,7 @@ function imageDownloadField() {
   imageDragAndDrop.append(imageFileIcon);
 
   const dragAndDropText = document.createElement('span');
-  dragAndDropText.innerText = 'Перетащите изоюражение сюда';
+  dragAndDropText.innerText = 'Перетащите изображение сюда';
   dragAndDropText.classList.add('app__drag-and-drop-text');
   imageDragAndDrop.append(dragAndDropText);
 

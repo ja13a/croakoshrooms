@@ -1,8 +1,11 @@
 // Цвета
-$white-basic: #FFFFFF;
+$white-basic: rgba(#FFFFFF, 0.85);
 $gray-basic: #8c8c8c;
 $bg-dark: #1a1a1a;
 $green-basic: #8bab3e;
+$orange-basic: #D48A3F;
+$red-basic: #EB4E41;
 
 // Размеры
 $default-border-radius: 8px;
+$mobile-breakpoint: 576px;

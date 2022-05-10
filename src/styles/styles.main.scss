@@ -17,14 +17,38 @@ body {
   width: fit-content;
   margin: 40px auto 65px;
 
+  @media (max-width: $mobile-breakpoint) {
+    flex-direction: column;
+    width: 100%;
+    margin: 10px auto 20px;
+  }
+
+  &__image {
+    width: 150px;
+
+    @media (max-width: $mobile-breakpoint) {
+      width: 100px;
+    }
+  }
+
   &__text-container {
     display: flex;
     flex-direction: column;
     margin-bottom: 1em;
+
+    @media (max-width: $mobile-breakpoint) {
+      align-items: center;
+      width: 100%;
+    }
   }
 
   &__title {
     font-size: 8em;
+
+    @media (max-width: $mobile-breakpoint) {
+      width: fit-content;
+      font-size: 4em;
+    }
   }
 
   &__subtitle {
@@ -32,11 +56,22 @@ body {
     margin-left: 6px;
     color: $gray-basic;
     font-size: 3em;
+
+    @media (max-width: $mobile-breakpoint) {
+      width: fit-content;
+      margin-left: 2px;
+      font-size: 2em;
+    }
   }
 }
 
 .navigation {
   margin: 8px 0 0 6px;
+
+  @media (max-width: $mobile-breakpoint) {
+    max-width: 90%;
+    margin: 10px 0;
+  }
 
   &__list {
     display: flex;
@@ -44,6 +79,12 @@ body {
     margin: 0;
     padding: 0;
     list-style: none;
+
+    @media (max-width: $mobile-breakpoint) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 
   &__link {
@@ -51,6 +92,10 @@ body {
     height: 21px;
     font-size: 2em;
     gap: 5px;
+
+    @media (max-width: $mobile-breakpoint) {
+      font-size: 2em;
+    }
   }
 
   &__icon {
@@ -62,15 +107,25 @@ body {
 
 .app {
   display: flex;
+  justify-content: center;
   width: fit-content;
+  min-width: 600px;
   min-height: 600px;
   margin: 0 auto;
+
+  @media (max-width: $mobile-breakpoint) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: unset;
+    min-width: 100%;
+  }
 
   &__image-placeholder {
     display: flex;
     flex-direction: column;
-    width: 250px;
-    height: 450px;
+    width: 300px;
+    height: 550px;
+    margin-left: 60px;
     color: $gray-basic;
     border: 1px dashed $white-basic;
     border-radius: $default-border-radius;
@@ -85,6 +140,10 @@ body {
     &[data-drag='true'] > div.image-file-icon {
       background-color: $white-basic;
     }
+
+    @media (max-width: $mobile-breakpoint) {
+      margin-left: 0;
+    }
   }
 
   &__browse-file-button {
@@ -93,7 +152,7 @@ body {
   }
 
   &__drag-and-drop-text {
-    width: 220px;
+    width: 250px;
     margin: auto;
     color: inherit;
     font-size: 3em;
@@ -106,29 +165,48 @@ body {
     align-items: center;
     justify-content: flex-start;
     width: 350px;
-    margin-top: 40px;
-    margin-left: 100px;
+    height: fit-content;
+    margin-top: 80px;
+    margin-left: 30px;
     font-size: 4em;
     text-align: center;
+
+    @media (max-width: $mobile-breakpoint) {
+      display: none;
+    }
   }
 
   &__loader-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 450px;
-    min-height: 400px;
+    min-width: 600px;
+    height: 300px;
+
+    @media (max-width: $mobile-breakpoint) {
+      min-width: 100%;
+    }
   }
 }
 
 .result {
   &__result-title {
     font-size: 4em;
+
+    @media (max-width: $mobile-breakpoint) {
+      font-size: 2em;
+    }
   }
 
-  &__image-continer {
-    width: fit-content;
+  &__image-container {
+    display: flex;
+    flex-direction: column;
     height: fit-content;
+
+    @media (max-width: $mobile-breakpoint) {
+      align-items: center;
+      min-width: 95%;
+    }
   }
 
   &__image {
@@ -136,23 +214,60 @@ body {
     max-width: 400px;
     max-height: 600px;
     border-radius: $default-border-radius;
+
+    @media (max-width: $mobile-breakpoint) {
+      display: none;
+    }
   }
 
   &__data-container {
     display: flex;
     flex-direction: column;
+    height: fit-content;
     margin: -8px 0 0 25px;
+    color: $gray-basic;
     gap: 15px;
+
+    @media (max-width: $mobile-breakpoint) {
+      order: -1;
+      width: 85%;
+      margin: 0 0 30px;
+    }
   }
 
   &__item-probability {
-    font-size: 4em;
+    font-size: 3em;
+
+    @media (max-width: $mobile-breakpoint) {
+      font-size: 2em;
+    }
+
+    &[data-position='0'] {
+      color: $green-basic;
+      font-size: 4em;
+
+      @media (max-width: $mobile-breakpoint) {
+        font-size: 3em;
+      }
+    }
+
+    &[data-position='1'] {
+      color: $orange-basic;
+    }
+
+    &[data-position='2'] {
+      color: $red-basic;
+    }
   }
 
   &__item-title {
     margin-left: 10px;
     color: $white-basic;
     font-size: 3em;
+
+    @media (max-width: $mobile-breakpoint) {
+      font-size: 2em;
+    }
   }
 
   &__item-lat-titel {
@@ -180,6 +295,11 @@ body {
   }
 
   &__restart-button {
-    margin-top: 40px;
+    min-width: 200px;
+    margin-top: 10px;
+
+    @media (max-width: $mobile-breakpoint) {
+      min-width: 95%;
+    }
   }
 }
