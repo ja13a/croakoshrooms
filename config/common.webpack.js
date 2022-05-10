@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   commonModules: {
@@ -19,7 +20,7 @@ module.exports = {
       {
         test: /\.(sass|scss|css)$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           {
             loader: 'postcss-loader',
@@ -53,6 +54,7 @@ module.exports = {
     ]
   },
   commonPlugins: [
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: paths.src + '/template.html',
       favicon: paths.src + '/static/img/favicon.png',

@@ -29,6 +29,7 @@ async function predict(imageNode) {
     const result = await output.data();
 
     return result;
+
   } catch (error) {
     errorHandler();
   }
